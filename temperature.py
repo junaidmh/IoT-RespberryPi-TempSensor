@@ -1,4 +1,4 @@
-#Program for printing the Temperature readings from the DS18B20 to the pi terminal.
+# Program for printing the Temperature readings from the DS18B20 to the pi terminal.
 # We also convert the readings to Celsius & Fahrenheit
 # Devices used - 'raspberry pi 3 model b', 'DS18B20 Temp Sensor', Jumper Wires', 'Bread Board'
 
