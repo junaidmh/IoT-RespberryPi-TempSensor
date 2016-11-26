@@ -18,10 +18,10 @@ device_file = device_folder + '/w1_slave'
 
 print ('\n\n *** Temperature Sensor Module *** ')
 print (' *** Display Temperature in Celsius & Fahrenheit *** \n')
-foo=raw_input(' Enter the no of seconds between temp readings ::> ')
+#foo=raw_input(' Enter the no of seconds between temp readings ::> ')
 test=raw_input(' \n >>>> Hit any Key to begin ')
 print('\n\n')
-bar = int(foo)
+#bar = int(foo)
 
 #print ('\nCelsius  **  Fahrenheit \n')
 
@@ -63,4 +63,4 @@ def read_temp_f():
 while True:
       print("Temp in Celsius   : " + read_temp_c() +  " C")
       print("Temp in Fahrenheit: " + read_temp_f() +  " F \n")
-      time.sleep(bar)
+      time.sleep(5)
