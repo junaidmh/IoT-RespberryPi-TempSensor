@@ -33,7 +33,7 @@ def read_temp_raw():
     f.close()
     return lines
 
-#CELSIUS CALCULATION
+# CELSIUS CALCULATION
 def read_temp_c():
     lines = read_temp_raw()
     while lines[0].strip()[-3:] != 'YES':
@@ -46,7 +46,7 @@ def read_temp_c():
         temp_c = str(round(temp_c, 1))
         return temp_c
 
-#FAHRENHEIT CALCULATION
+# FAHRENHEIT CALCULATION
 def read_temp_f():
     lines = read_temp_raw()
     while lines[0].strip()[-3:] != 'YES':
@@ -59,6 +59,7 @@ def read_temp_f():
         temp_f = str(round(temp_f, 1))
         return temp_f
 
+# Print the Temp to the terminal
 while True:
       print("Temp in Celsius   : " + read_temp_c() +  " C")
       print("Temp in Fahrenheit: " + read_temp_f() +  " F \n")
