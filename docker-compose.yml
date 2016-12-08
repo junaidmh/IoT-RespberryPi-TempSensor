@@ -1,0 +1,28 @@
+# This file will download + start up InfluxDB and Grafana and configure them for you.
+# Then head over to localhost:3000, password: admin/admin.
+# Add a datasource for InfluxDB and then add a dashboard and pick the meaurements you want to see.
+version: "2.0"
+services:
+  influx:
+    image: influxdb
+    ports:
+     - "8083:8083"
+     - "8086:8086"
+    environment:
+     - INFLUXDB_USER=root
+     - INFLUXDB_PASS=root
+     - INFLUXDB_NAME=IoTDashboard
+     - PRE_CREATE_DB="IoTDashboard"
+  grafana:
+    image: grafana/grafana
+    environment:
+     - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-piechart-panel
+     - INFLUXDB_USER=root
+     - INFLUXDB_PASS=root
+     - INFLUXDB_NAME=IoTDashboard
+    ports:
+     - "3000:3000"
+    links:
+     - influx
+    depends_on:
+     - influx
