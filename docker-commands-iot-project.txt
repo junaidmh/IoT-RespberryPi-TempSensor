@@ -1,0 +1,14 @@
+# Command to run InfluxDB using docker
+# In this command we are giving the container a name and exposing the relevant ports i.e 8086 & 8083
+# We are also setting the concerned environmental variable that are needed for our project
+
+
+docker run --name influxdb -p 8083:8083 -p 8086:8086 -e INFLUXDB_USER=testsensor -e INFLUXDB_PASS=testsensor -e INFLUXDB_NAME=IoTDashboard -d jaywanii/influxdb:latest
+
+
+# Command for running Grafana using docker
+# In this command we are giving the container a name and exposing the relevant ports i.e. 3000
+# We are also setting the concerned environmental variable that are needed for our project
+# We are also lining this Grafana container with the InfluxDB container, which will be the database.
+
+docker run --name grafana -p 3000:3000 --link influxdb:influxdb -e INFLUXDB_USER=testsensor -e INFLUXDB_PASS=testsensor -e INFLUXDB_NAME=IoTDashboard -d jaywanii/grafana:latest
